@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\File;
+//use DB; Enkel bij gebruik SQL queries ipv Eloquent (Zie index()->DB)
 
 class FilesController extends Controller
 {
@@ -14,7 +15,14 @@ class FilesController extends Controller
      */
     public function index()
     {
-        $files = File::all();
+        // $files = File::all();
+        // $files = File::orderBy('filename', 'desc')->get(); 
+        // $files = File::orderBy('filename', 'desc')->take(1)->get();  // take(limit)
+        // $files = File::where('filename', 'Tweede')->get(); 
+        // $files = DB::select('SELECT * from files where filename = "Eerste"'); // SQL query (use DB) 
+        // $files = File::orderBy('filename', 'desc')->simplePaginate(6); // Pagina's met enkel vorige/volgende knoppen
+           $files = File::orderBy('created_at', 'desc')->paginate(5); // Pagina's met nummers
+
         return view('files.index')->with('files', $files);
     }
 
@@ -25,7 +33,7 @@ class FilesController extends Controller
      */
     public function create()
     {
-        //
+        return view('files.create');
     }
 
     /**
@@ -36,7 +44,17 @@ class FilesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'filename' => 'required',
+//            'file' => 'required'
+        ]);
+       
+        // Create file
+        $file = new File;
+        $file->filename = $request->input('filename');
+        $file->save();
+        
+        return redirect('/files')->with('success', 'Bestand toegevoegd');
     }
 
     /**
@@ -49,6 +67,7 @@ class FilesController extends Controller
     {
         $file =  File::find($id);
         return view('files.show')->with('file', $file);
+
     }
 
     /**
@@ -59,7 +78,10 @@ class FilesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $file =  File::find($id);
+        return view('files.edit')->with('file', $file);
+
+
     }
 
     /**
@@ -71,7 +93,17 @@ class FilesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'filename' => 'required',
+//          'file' => 'required'
+        ]);
+       
+        // Create file
+        $file = File::find($id);
+        $file->filename = $request->input('filename');
+        $file->save();
+        
+        return redirect('/files')->with('success', 'Bestand aangepast');
     }
 
     /**
@@ -82,6 +114,9 @@ class FilesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $file = File::find($id);
+        $file->delete();
+        
+        return redirect('/files')->with('success', 'Bestand verwijderd');
     }
 }
