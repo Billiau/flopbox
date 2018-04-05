@@ -7,9 +7,9 @@
         Hier komt het bestand
     </div>
     <hr>
-    <small>Aangemaakt op {{$file->created_at}}</small>
+    <small>Aangemaakt op {{$file->created_at}} door <strong>{{$file->user->name}}</strong></small>
     <br><br>
-    <a href="/files/{{$file->id}}/edit" class="btn btn-primary">Aanpassen</a>  
+    <a href="/dashboard/{{$file->id}}/edit" class="btn btn-primary">Aanpassen</a>  
     
     {!! Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'float-right']) !!}
 

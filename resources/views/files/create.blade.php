@@ -5,7 +5,6 @@
     
 {!! Form::open(['action' => 'FilesController@store', 'method' => 'POST']) !!}
     <div class='form-group'>
-        {{Form::label('filename' , 'Bestandsnaam')}}
         {{Form::text('filename', '', ['class' => 'form-control', 'placeholder' => 'Bestandsnaam'])}}
     </div>
 

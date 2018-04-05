@@ -15,7 +15,7 @@ Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
-Route::resource('files', 'FilesController');
+Route::resource('dashboard', 'FilesController');
 //Route::get('/', function () {
 //    return view('welcome');
 //});
@@ -28,4 +28,9 @@ Route::resource('files', 'FilesController');
 //    return 'this is user ' . $name . ' with id ' . $id;
 //});
 
+
+
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');
 

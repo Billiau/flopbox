@@ -8,6 +8,17 @@ use App\File;
 
 class FilesController extends Controller
 {
+        /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+    
+    
     /**
      * Display a listing of the resource.
      *
@@ -52,9 +63,10 @@ class FilesController extends Controller
         // Create file
         $file = new File;
         $file->filename = $request->input('filename');
+        $file->user_id = auth()->user()->id;
         $file->save();
         
-        return redirect('/files')->with('success', 'Bestand toegevoegd');
+        return redirect('/dashboard')->with('success', 'Bestand toegevoegd');
     }
 
     /**
@@ -81,7 +93,6 @@ class FilesController extends Controller
         $file =  File::find($id);
         return view('files.edit')->with('file', $file);
 
-
     }
 
     /**
@@ -103,7 +114,7 @@ class FilesController extends Controller
         $file->filename = $request->input('filename');
         $file->save();
         
-        return redirect('/files')->with('success', 'Bestand aangepast');
+        return redirect('/dashboard')->with('success', 'Bestand aangepast');
     }
 
     /**
@@ -117,6 +128,6 @@ class FilesController extends Controller
         $file = File::find($id);
         $file->delete();
         
-        return redirect('/files')->with('success', 'Bestand verwijderd');
+        return redirect('/dashboard')->with('success', 'Bestand verwijderd');
     }
 }
