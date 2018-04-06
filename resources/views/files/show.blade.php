@@ -11,10 +11,15 @@
     <br><br>
     <a href="/dashboard/{{$file->id}}/edit" class="btn btn-primary">Aanpassen</a>  
     
-    {!! Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'float-right']) !!}
-
-        {{Form::hidden('_method', 'DELETE')}}
-        {{Form::submit('Verwijderen', ['class' => 'btn btn-danger'])}}
-
-    {!! Form::close() !!}
+        @if(!Auth::guest())        
+            @if(Auth::user()->id == $file->user_id)
+            
+                {!! Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'float-right']) !!}
+                    {{Form::hidden('_method', 'DELETE')}}
+                    {{Form::submit('Verwijderen', ['class' => 'btn btn-danger'])}}
+                {!! Form::close() !!}
+                
+            @endif
+        @endif
+        
 @endsection

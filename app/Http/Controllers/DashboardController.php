@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
+use App\File;
 class DashboardController extends Controller
 {
     /**
@@ -25,7 +25,7 @@ class DashboardController extends Controller
     public function index()
     {
         $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        return view('dashboard')->with('files', $user->files);
+        $user = User::find($user_id)->files()->orderBy('created_at', 'desc')->paginate(10);
+        return view('dashboard')->with('files', $user);
     }
 }

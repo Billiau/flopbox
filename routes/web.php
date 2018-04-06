@@ -28,7 +28,9 @@ Route::resource('dashboard', 'FilesController');
 //    return 'this is user ' . $name . ' with id ' . $id;
 //});
 
-
+Route::get('/', ['middleware' =>'guest', function(){
+  return view('auth.login');
+}]);
 
 Auth::routes();
 
