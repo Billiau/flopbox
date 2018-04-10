@@ -183,4 +183,23 @@ class FilesController extends Controller
         $file->delete();
         return redirect('/dashboard')->with('success', 'Bestand verwijderd');
     }
+    
+    public function download($id)
+    {
+        $file = File::find($id);
+        
+        // Check for correct user
+        if(auth()->user()->id !== $file->user_id){
+            return redirect('/dashboard')->with('error', 'Niet toegelaten');
+        }
+        $bestandsnaam = $file->bestand;
+        
+        $pathfile = public_path() . "\storage\bestanden\\".$bestandsnaam;
+      
+        $headers = array('Content-Type: ' . mime_content_type( $pathfile ),);
+
+        return response()->download($pathfile, $bestandsnaam, $headers);
+    }
+        
+        
 }

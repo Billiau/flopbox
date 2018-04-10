@@ -36,3 +36,4 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
 
+Route::get('/download/{id}', 'FilesController@download');
