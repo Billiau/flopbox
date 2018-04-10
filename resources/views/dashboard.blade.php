@@ -46,7 +46,7 @@ echo "The time is " . date("H:i:s");
                                     
                                     <a href="/dashboard/{{$file->id}}/edit" id ="potlood" class="btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right"><i class="material-icons">mode_edit</i></a>
                                     
-                                    <a href="{{ URL('/download/'.$file->id )}}" id ="down" class="btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right"><i class="material-icons">file_download</i></a>
+                                    <a href="{{ URL('/download/'.$file->id )}}" id ="down" class="btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right"><i class="material-icons downl">file_download</i></a>
                             </td>
                         </tr>
                         @endforeach

@@ -9,11 +9,14 @@
         {{Form::text('filename', $file->filename, ['class' => 'form-control', 'placeholder' => 'Bestandsnaam'])}}
     </div>
 
-    <div class='form-group'>
-        {{Form::file('image')}}
-    </div>
+<div class='form-group'>
+    {{Form::file('bestand', ['class' => 'fileup', 'id' => 'fileup', 'data-multiple-caption' => '{count} files selected', 'multiple', 'style' => 'display:none'])}}
+    <a href="javascript:document.getElementById('fileup').click(); " id="bladeren" class="btn btn-dark">Bladeren</a>
+    <input id="uploadFile" placeholder="{{$file->bestand}}" disabled="disabled" />
+
+</div>
     {{Form::hidden('_method', 'PUT')}}
-    {{Form::submit('Opslaan', ['class' => 'btn btn-primary'])}}
+    {{Form::submit('Opslaan', ['class' => 'btn btn-primary', 'id' => 'opslaan'])}}
     
 {!! Form::close() !!}
 
