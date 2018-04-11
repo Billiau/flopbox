@@ -615,6 +615,11 @@ pre code {
     color: darkred;
 }
 
+#trashcan {
+    position: relative;
+    top: -3px;
+}
+
 #potlood{
     color:#eea236
 }

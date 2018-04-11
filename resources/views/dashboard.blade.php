@@ -5,9 +5,6 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <br><br>
-            <?php 
-echo "The time is " . date("H:i:s");
-?>
             <div class="card">
                 <div class="card-header"><a href="/dashboard/create" class="btn btn-primary">Voeg bestand toe</a></div>
 
@@ -35,14 +32,17 @@ echo "The time is " . date("H:i:s");
                             <td>{{$file->filename}}</td>
                             <td><small>{{$file->created_at->format('d-m-Y || H:i:s')}}</small></td>
                             <td>
-                                <!--<a href="/files/{{$file->id}}/edit" id="vuilbak" class="btn btn-circle d-flex justify-content-center align-items-center float-right"><i class="material-icons">delete</i></a>-->
-  
+<!--
+                                     Delete ook mogelijk met form
+                                     
                                      {!! Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right']) !!}
 
                                         {{Form::hidden('_method', 'DELETE')}}
-                                        {{Form::submit('delete', ['class' => 'material-icons', 'id' => 'vuilbak'])}}
+                                        {{Form::submit('delete', ['class' => 'material-icons btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right', 'id' => 'vuilbak'])}}                       if (!confirm('Are you sure?')) { return false; }
 
-                                    {!! Form::close() !!}
+                                    {!! Form::close() !!}-->
+                                    
+                                    <button id ="vuilbak" class="btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right vuilbak" onclick="sweetDelete(event, {{$file->id}});"><i class="material-icons" id="trashcan">delete</i></button>
                                     
                                     <a href="/dashboard/{{$file->id}}/edit" id ="potlood" class="btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right"><i class="material-icons">mode_edit</i></a>
                                     

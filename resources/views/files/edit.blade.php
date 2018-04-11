@@ -6,7 +6,7 @@
 {!! Form::open(['action' => ['FilesController@update', $file->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class='form-group'>
         {{Form::label('filename' , 'Bestandsnaam')}}
-        {{Form::text('filename', $file->filename, ['class' => 'form-control', 'placeholder' => 'Bestandsnaam'])}}
+        {{Form::text('filename', $file->filename, ['class' => 'form-control', 'placeholder' => 'Bestandsnaam', 'autofocus'])}}
     </div>
 
 <div class='form-group'>

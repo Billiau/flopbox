@@ -16,6 +16,7 @@ class FilesController extends Controller
      */
     public function __construct()
     {
+        date_default_timezone_set('Europe/Brussels'); 
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
@@ -39,7 +40,7 @@ class FilesController extends Controller
     {
         $this->validate($request, [
             'filename' => 'required',
-            'bestand' => 'required|max:1999' // Want apache default upload size = 2MB
+            'bestand' => 'required|max:20000' // Want apache default upload size = 2MB
         ]);
         
         // Handle file upload
