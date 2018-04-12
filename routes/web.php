@@ -39,3 +39,5 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::get('/download/{id}', 'FilesController@download');
 
 Route::get('/destroy/{id}', 'FilesController@destroy');
+
+Route::get('/search', 'DashboardController@search');

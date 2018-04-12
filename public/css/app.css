@@ -605,7 +605,7 @@ pre code {
     padding:1rem 0;
 }
 
-#vuilbak{
+#vuilbak {
     color: red;
     border: none;
     background-color: white;
@@ -620,12 +620,18 @@ pre code {
     top: -3px;
 }
 
-#potlood{
+#potlood {
     color:#eea236
 }
 
 #potlood:hover{
     color: #af6d0f;
+}
+
+#loep {
+    color: #838f9b;
+    padding-right: 0.2rem;
+    cursor: pointer;
 }
 
 @media (min-width: 576px) {

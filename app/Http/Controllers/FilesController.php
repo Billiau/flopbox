@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\File;
-//use DB; Enkel bij gebruik SQL queries ipv Eloquent (Zie index()->DB)
+use DB;                                                         //Enkel bij gebruik SQL queries ipv Eloquent (Zie index()->DB)
 
 class FilesController extends Controller
 {
@@ -201,6 +201,5 @@ class FilesController extends Controller
 
         return response()->download($pathfile, $bestandsnaam, $headers);
     }
-        
-        
+    
 }

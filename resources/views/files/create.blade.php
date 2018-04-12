@@ -9,7 +9,7 @@
 </div>
 
 <div class='form-group'>
-    {{Form::file('bestand[]', ['class' => 'fileup', 'id' => 'fileup', 'data-multiple-caption' => '{count} files selected', 'multiple', 'style' => 'display:none'])}}
+    {{Form::file('bestand', ['class' => 'fileup', 'id' => 'fileup', 'style' => 'display:none'])}}
     <a href="javascript:document.getElementById('fileup').click(); " id="bladeren" class="btn btn-dark">Bladeren</a>
     <input id="uploadFile" placeholder="Kies een bestand" disabled="disabled" />
 

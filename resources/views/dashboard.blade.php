@@ -6,15 +6,20 @@
         <div class="col-md-8">
             <br><br>
             <div class="card">
-                <div class="card-header"><a href="/dashboard/create" class="btn btn-primary">Voeg bestand toe</a></div>
+                <div class="card-header">
+                    <a href="/dashboard/create" class="btn btn-primary">Voeg bestand toe</a>
+                    <span class="form-group form-inline float-right">
+                        <i class="material-icons" id="loep" onclick="document.getElementById('search').focus();">search</i>
+                        <input type="text" id="search" class="form-control" name="search" onkeyup="search(this.value)" placeholder="Zoeken">
+                    </span>
+                </div>
 
                 <div class="card-body">                  
                     @if (session('status'))
                     <div class="alert alert-success">
                         {{ session('status') }}
                     </div>
-                    @endif
-                    
+                    @endif          
                     <br>
                     <h3>Mijn bestanden</h3>
                     <br>

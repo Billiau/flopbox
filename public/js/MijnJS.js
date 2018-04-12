@@ -1,3 +1,17 @@
+function search(txt) {
+    $value = txt;
+    $.ajax({
+        type: 'get',
+        url: '/search',
+        data: {'search': $value},
+        success: function (data) {
+            if (data.no !== "") {
+                $('tbody').html(data);
+            }
+        }
+    });
+}
+
 function sweetDelete(e, id) {
     e.preventDefault();
     swal({
@@ -8,10 +22,10 @@ function sweetDelete(e, id) {
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
         confirmButtonText: 'Verwijder',
-        cancelButtonText: 'Terug',
+        cancelButtonText: 'Terug'
     }).then((result) => {
         if (result.value) {
-                window.location.href = "/destroy/"+id; 
+            window.location.href = "/destroy/" + id;
         }
 
     });
@@ -52,4 +66,9 @@ window.onload = function () {
         };
     }
     ;
+
+
+
 };
+
+
