@@ -29,7 +29,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/">Home</a>
                         <a class="dropdown-item" href="/about">Over</a>
-                        <a class="dropdown-item" href="/services">Diensten</a>
+                        <a class="dropdown-item" href="/services">Technieken</a>
                         <hr>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();

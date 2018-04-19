@@ -18,8 +18,8 @@ class PagesController extends Controller
     
     public function services(){
         $data = array(
-            'title' => 'Services',
-            'services' => ['Web Design', 'Programming', 'SEO']
+            'title' => 'Gebruikte technieken',
+            'services' => ['HTML5', 'CSS3', 'Bootstrap4', 'JavaScript', 'AJAX', 'PHP7 / Laravel', 'MySQL' ]
         );
         return view('pages.services')->with($data);
     }

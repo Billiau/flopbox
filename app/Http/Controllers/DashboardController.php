@@ -36,16 +36,7 @@ class DashboardController extends Controller {
             $output = "<tr><th class='table-success'>Bestandsnaam</th><th colspan='2' class='table-success'>Aangemaakt op</th></tr>";
             $results = DB::table('files')->where('filename', 'LIKE', '%' . $request->search . '%')
                                                      ->where('user_id', '=', $user_id)->get();
-
             if ($results) {
-                
-//                 foreach ($results as $key => $result) { 
-//                     $outputs =[
-//                                        'naam' => $result->filename,
-//                                        'datum' => $result->created_at
-//                     ];
-//
-//                 }
                 
                 foreach ($results as $key => $result) { 
                     $output .=    

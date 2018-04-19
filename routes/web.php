@@ -16,6 +16,7 @@ Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
 Route::resource('dashboard', 'FilesController');
+
 //Route::get('/', function () {
 //    return view('welcome');
 //});
@@ -36,8 +37,8 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
 
+Route::get('/search', 'DashboardController@search');
+
 Route::get('/download/{id}', 'FilesController@download');
 
 Route::get('/destroy/{id}', 'FilesController@destroy');
-
-Route::get('/search', 'DashboardController@search');
