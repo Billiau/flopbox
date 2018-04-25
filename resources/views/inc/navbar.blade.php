@@ -10,8 +10,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <a class="p-2 text-dark" href="/dashboard">Mijn bestanden</a>
-                <a class="p-2 text-dark" href="/dashboard/create">Uploaden</a>
+                <a class="p-2 text-dark" href="{{ url('/dashboard') }}">Mijn bestanden</a>
+                <a class="p-2 text-dark" href="{{ url('/dashboard/create') }}">Uploaden</a>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -27,9 +27,9 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/">Home</a>
-                        <a class="dropdown-item" href="/about">Over</a>
-                        <a class="dropdown-item" href="/services">Technieken</a>
+                        <a class="dropdown-item" href="{{ url('/dashboard') }}">Home</a>
+                        <a class="dropdown-item" href="{{ url('/about') }}">Over</a>
+                        <a class="dropdown-item" href="{{ url('/tech') }}">Technieken</a>
                         <hr>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();

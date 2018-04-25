@@ -2,7 +2,7 @@ function search(txt) {
     $value = txt;
     $.ajax({
         type: 'get',
-        url: '/search',
+        url: 'search',
         data: {'search': $value},
         success: function (data) {
             if (data.no !== "") {
@@ -25,7 +25,7 @@ function sweetDelete(e, id) {
         cancelButtonText: 'Terug'
     }).then((result) => {
         if (result.value) {
-            window.location.href = "/destroy/" + id;
+            window.location.href = "destroy/" + id;
         }
 
     });

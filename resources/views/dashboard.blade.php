@@ -7,7 +7,7 @@
             <br><br>
             <div class="card">
                 <div class="card-header">
-                    <a href="/dashboard/create" class="btn btn-primary">Voeg bestand toe</a>
+                    <a href="{{ url('/dashboard/create') }}" class="btn btn-primary">Voeg bestand toe</a>
                     <span class="form-group form-inline float-right">
                         <i class="material-icons" id="loep" onclick="document.getElementById('search').focus();">search</i>
                         <input type="text" id="search" class="form-control" name="search" onkeyup="search(this.value)" placeholder="Zoeken">
@@ -49,9 +49,9 @@
                                     
                                     <button id ="vuilbak" class="btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right vuilbak" onclick="sweetDelete(event, {{$file->id}});"><i class="material-icons" id="trashcan">delete</i></button>
                                     
-                                    <a href="/dashboard/{{$file->id}}/edit" id ="potlood" class="btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right"><i class="material-icons">mode_edit</i></a>
+                                    <a href="{{ URL('dashboard/'.$file->id)}}/edit" id ="potlood" class="btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right"><i class="material-icons">mode_edit</i></a>
                                     
-                                    <a href="{{ URL('/download/'.$file->id )}}" id ="down" class="btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right"><i class="material-icons downl">file_download</i></a>
+                                    <a href="{{ URL('download/'.$file->id )}}" id ="down" class="btn btn-circle mr-1 d-flex justify-content-center align-items-center float-right"><i class="material-icons downl">file_download</i></a>
                             </td>
                         </tr>
                         @endforeach
